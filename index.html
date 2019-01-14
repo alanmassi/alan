@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Design</title>
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Josefin+Sans|Satisfy" rel="stylesheet">
+		<style>
+			/*
+				font-family: 'Satisfy', cursive;
+				font-family: 'Josefin Sans', sans-serif;
+				font-family: 'Indie Flower', cursive;
+			*/
+			*{padding: 0; margin: 0;}
+			body{
+				width: 100%;
+				max-width: 1024px;
+				height: 100%;
+				background: black;
+				font-family: 'Josefin Sans', sans-serif;
+			}
+			body::-webkit-scrollbar{ /*deshabilito scroll body*/
+				display: none;
+				
+			}
+			.container{
+				width: 100%;
+				height: 100%;
+				/*display: flex;*/
+				overflow: hidden;
+				position: relative;
+			}
+			
+			/*-------------------------------------------header*/
+			.header{
+				width: 20%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				z-index: 100000;
+				background: lightgray;
+				border: 1px solid red;
+			}
+			.logo{
+				width: 100%;
+				/*margin-top: 5px;*/
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			.logo-image{
+				width: 100%;
+				height: auto;
+				/*margin-bottom: 5px;*/
+			}
+			.menu{
+				width: 100%;
+				/*margin-top: 20px;*/
+				border: 1px solid black;
+			}
+			.link{
+				width: 100%;
+				height: 60px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: 1px solid yellow;
+				text-decoration: none;
+				color: red;
+				transition: .5s;
+				will-change: background, color;
+			}
+			.link:hover{
+				background: black;
+				color: white;
+			}
+			.click{
+				background: yellow;
+			}
+			/*-------------------------------------------header*/
+			/*-----------------------------------page-container*/
+			.page-container{
+				width: 100%;
+				height: auto;
+				max-height: 100%;
+				margin-left: 20%;
+				padding: 2% 0;
+				/*position: fixed;*/
+				border: 1px solid blue;
+				box-sizing: border-box;
+				z-index:2;
+			}
+			#particles-js{
+				
+				
+				position: fixed;
+				
+				top: 0;
+				
+				bottom: 0;
+				z-index: 1;
+			}
+			/*-----------------------------------page-container*/
+			/*------------------------------------------seccion*/
+			.seccion{
+				width: 70%;
+				height: 90%;
+				background: rgba(255,255,255,.6);
+				border-radius: 5px;
+				/*margin: 5% 0 10%;*/
+				/*margin-left: 20%;*/
+				
+				position: absolute;
+				/*left: -10000px;*/
+				left: 5px;
+				border: 1px solid gray;
+				transition: 1.2s;
+				opacity: 0;
+				overflow-y: scroll; /* habilito scroll en el div*/
+				overflow-x: hidden;
+			    display: flex;
+				justify-content: flex-end;/*para que se alineen a la izquierda*/
+				padding: 2%;
+				box-sizing: border-box;
+				will-change: left;
+				direction: rtl /*barra de scroll a la izquierda*/
+			}
+			.active{
+				/*left: 5px;*/
+				z-index: 111111;
+				opacity: 1;
+			}
+			.seccion::-webkit-scrollbar {
+				width: 5px; /* ancho del scroll*/
+				background-color: #ffffff; /* Color del fondo principal */
+			}
+			.seccion::-webkit-scrollbar-track {
+				background-color: rgba(38, 50, 56, 0.19); /* color de fondo del trayecto del scroll */
+			}
+			.seccion::-webkit-scrollbar-thumb {
+				background-color: #263238; /*color del indicador del scroll */
+				border-radius: 10px; /* bordes redondeados */
+			}
+			
+			/*-------------------------------------------cfg scrollbar
+				::-webkit-scrollbar {}  => Barra de desplazamiento 
+				::-webkit-scrollbar-button {}  => Los botones (flechas que apuntan hacia arriba y hacia abajo)
+				::-webkit-scrollbar-thumb {}  => indicador de desplazamiento
+				::-webkit-scrollbar-track {}  => Contenedor de la barra de progreso 
+				::-webkit-scrollbar-track-piece {}  => barra de progreso
+				::-webkit-scrollbar-corner {}  => Esquina inferior de las barras de desplazamiento 
+				::-webkit-resizer {}  => Arrastrable para cambiar de tamaño 
+			-------------------------------------------*/
+			.seccion p{
+				direction: ltr /* para que no afecte la direccion del padre a sus hijos*/
+			}
+			/*------------------------------------------seccion*/
+			/*-----------------------------------------------home*/
+			.home{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: transparent;
+				border: none;
+				overflow: hidden;
+			}
+			
+			.home h1{
+				font-family: 'Satisfy', cursive;
+				font-size: 9em;
+				transform: rotateZ(-15deg);
+				color: white;
+			}
+			
+			
+			/*-----------------------------------------------home*/
+			/*-----------------------------------------------about*/
+			.about{
+				flex-wrap: wrap;
+				padding: 0;
+				
+			}
+			#parallax-container{
+				display: block;
+				width: 100%;
+				position: relative;
+				/*background: blue;*/
+				border: 1px solid red;
+				height: 841px;; /*puede ser ajustado aca y despues*/
+				direction: ltr
+			}
+			/*
+			#parallax-container div{
+				position: absolute;  importante
+				top: 160px;
+				background-position: center !important;
+				transform: translateY(0px);
+				height: 350px;
+				width: 100%;
+			}
+			*/
+			.content{
+				width: 100%;
+				height: 200px;
+				background: white;
+				background-position: center !important;
+				transform: translateY(0px);
+				position: absolute;
+				bottom: 0;
+				will-change: transform;
+			}
+			.para-image{
+				width:100%;
+				height: auto;
+			}
+			
+			.verde{
+				width: 100%;
+				height: 150px;
+				top: 0;
+				right: 0;
+				position: absolute;/* importante*/
+				transform: translateY(0px);
+				/* background: rgba(0,255, 0,.5); */
+				background: transparent;
+				background-position: center !important;
+				/*border-radius: 50%;*/
+				z-index: 13;
+				will-change: transform;
+			}
+			.blaquito{
+				width: 100%;
+				height: 400px;
+				padding: 1% 1% 0 1%;
+				box-sizing: border-box;
+				position: absolute;/* importante*/
+				top: 70%;
+				transform: translateY(0px);
+				background: rgba(173, 12, 66, 1);
+				background-position: center !important;
+				/*border-radius: 50%;*/
+				/* z-index: 15; */
+				color: lightblue;
+				display: flex;
+				justify-content: space-between;
+				will-change: transform;
+			}
+			.blaquito-image{
+				width: 23%;
+				height: auto;
+			}
+			.letter h1{
+				font-size: 3em;
+			}
+			.letter h2{
+				font-size: 2em;
+			}
+			.letter h3{
+				font-size: 1.5em;
+			}
+			.letter h5{
+				font-size: 1em;
+			}
+			
+			.about-title{
+				width: 40%;
+				height: auto;
+				top: 15%;
+				left: 30%;
+				background: rgba(0,0,255, .1);
+				position: absolute;/* importante*/
+				transform: translateY(0px);
+				/*opacity: 0;*/
+				transition: .1s;
+				font-size: 5em;
+				font-family: 'Indie Flower', cursive;
+				z-index: 12;
+				will-change: transform;
+				
+			}
+			.about-name{
+				width: 35%;
+				height: auto;
+				top: 45%;
+				left: 15%;
+				background: rgba(0,255,0, .1);
+				position: absolute;/* importante*/
+				transform: translateY(0px);
+				/*opacity: 0;*/
+				transition: .1s;
+				font-size: 4em;
+				font-family: 'Indie Flower', cursive;
+				z-index: 13;
+				/* opacity: 0; */
+				
+				/* transition: 1s; */
+				will-change: transform;
+			}
+			.about-be{
+				width: 40%;
+				height: auto;
+				top: 60%;
+				right: 15%;
+				position: absolute;/* importante*/
+				transform: translateY(0px);
+				background-position: center !important;
+				background: rgba(255,0,0,.2);
+				/* background: transparent; */
+				/*border-radius: 50%;*/
+				z-index: 14;
+				transition: .1s;
+				font-size: 3.5em;
+				font-family: 'Indie Flower', cursive;
+				will-change: transform;
+			}
+			.part-tree{
+				width: 30%;
+				height: auto;
+				top: 100%;
+				left: 10%;
+				background: rgba(255,255,255, .2);
+				position: absolute;/* importante*/
+				transform: translateY(0px);
+				/*opacity: 0;*/
+				transition: .1s;
+				font-size: 2.5em;
+				font-family: 'Indie Flower', cursive;
+				/* z-index: 14; */
+				/* opacity: 0; */
+				
+				/* transition: 1s; */
+				will-change: transform;
+			}
+			/*-----------------------------------------------about*/
+			/*------------------------------------------experience*/
+			.experience{
+				flex-wrap: wrap;
+			}
+			.experience-description{
+				width: 100%;
+				height: auto;
+				border: 1px solid red;
+				margin-bottom: 20px;
+				direction: ltr;
+			}
+			.experience-description p{
+				padding:.5em 1em;
+			}
+			.experience-slider{
+				width: 100%;
+				height: auto;
+				padding-top: 1em;
+				border: 1px solid red;
+				direction: ltr
+			}
+			.proyect-container{
+				width: 100%;
+				display: flex;
+			}
+			.proyect-container h3{
+				padding-left: 5px;
+			}
+			.proyect-image{
+				width: 60%;
+				height: 50px;
+				background: url('image/nazo.jpg') no-repeat;
+				background-size: 100%;
+				cursor: pointer;
+				transition: .5s;
+				will-change: height, margin;
+			}
+			.ampli{
+			/*.proyect-image:hover{*/
+				height: 249px;
+				margin-bottom: 3px;
+			}
+			.coment{
+				width: 30%;
+				position: absolute;
+				margin-top: 10px;
+				padding-left: 10px;
+				right: -35%;
+				opacity: 0;
+				box-sizing: border-box;
+				transition: 1s;
+				will-change: opacity;
+			}
+			.coment p{
+				margin-top: 1em;
+			}
+			.plash{
+				right: 10%;
+				opacity: 1;
+				
+			}
+			/*------------------------------------------experience*/
+			/*------------------------------------------contact*/
+			.contact{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+				background: transparent;
+				border: none;
+				overflow: hidden;
+				
+			}
+			.contact-title{
+				height: 40px;
+				padding: 1%;
+				direction: ltr;
+				margin-bottom: 3%;
+				color: white;
+				font-size: 4em;
+				/*animation-name: fui;*/
+				/*animation-duration: 2s;*/
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				opacity: 1;
+			}
+			@keyframes fui{
+				from{
+					opacity: 1;
+				}
+				to{
+					opacity: 0;
+				}
+			}
+			.form{
+				width: 80%;
+				height: auto;
+				padding: 15px 20px;
+				background: url('image/postal-posterior.jpg') no-repeat;
+				background-size: 100% 100%;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+				/*align-items: center;*/
+				/*flex-direction: column;*/
+				/*flex-wrap: wrap;*/
+				position: absolute;
+				left: 5%;
+				bottom: 5%;
+				direction: ltr;
+				
+				/*animation-name: rota;*/
+				/*animation-duration: 2s;*/
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				opacity: 1;
+				/*transform: rotateY(0deg);*/
+				/*transition: 1s;*/
+			}
+			@keyframes rota{
+				from{
+					opacity: 1;
+					transform: rotateY(0deg);
+				}
+				12.5%{
+					transform: rotateY(-23.5deg);
+				}
+				25%{
+					transform: rotateY(-45deg);
+				}
+				37.5%{
+					opacity: 1;
+					transform: rotateY(-68.5deg);
+				}
+				49.9%{
+					opacity: 1;
+				}
+				50%{
+					opacity: 0;
+					transform: rotateY(-90deg);
+				}
+				62.5%{
+					opacity: 0;
+					transform: rotateY(-113.5deg);
+				}
+				75%{
+					transform: rotateY(-135deg);
+				}
+				87.5%{
+					transform: rotateY(-158.5deg);
+				}
+				to{
+					opacity: 0;
+					transform: rotateY(180deg);
+				}
+			}
+			
+			.form label{
+				align-self: flex-start;
+				margin: 2px;
+				padding-bottom: 3px;
+			}
+			.consulta{
+				width: 45%;
+				margin: 15px;
+				display: flex;
+				flex-wrap: wrap;
+				box-sizing: border-box;
+				/*align-self: flex-start;*/
+			}
+			.consult{
+				width: 100%;
+				height: auto;
+				padding: 10px;
+				box-sizing: border-box;
+				/*background:;*/
+				border: none;
+				outline:none; /*saca el borde azul de los input*/
+			}
+			.btn{
+				width: 70px;
+				height: auto;
+				border-radius: 6px;
+				margin: 5px auto;
+				box-sizing: border-box;
+				outline:none; /*saca el borde azul de los input*/
+				font-family: 'Josefin Sans', sans-serif;
+			
+			}
+			.form-date{
+				width: 45%;
+				margin: 0 17px;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-end;
+			}
+			.form-box{
+				outline:none; /*saca el borde azul de los input*/
+				width: 100%;
+				height: 40px;
+				padding: 10px;
+				margin: 0 0 5px 0;
+				box-sizing: border-box;
+				font-family: 'Josefin Sans', sans-serif;
+				border-radius: 10px;
+				/*background: rgba(0,0,0,.5);*/
+				border: none;
+				background: transparent;
+				
+			}
+			.form-frontal{
+				position: absolute;
+				left: 5%;
+				bottom: 5%;
+				/*width: 80%;*/
+				/*height: auto;*/
+				/*padding: 15px 20px;*/
+				background: url('image/postal-frontal.jpg') no-repeat;
+				background-size: 100% 100%;
+				/*box-sizing: border-box;*/
+				/*display: flex;*/
+				/*justify-content: space-between;*/
+				/*align-items: center;*/
+				/*flex-direction: column;*/
+				/*flex-wrap: wrap;*/
+				/*z-index: 14;*/
+				/*animation-name: rotar;*/
+				/*animation-duration: 2s;*/
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				
+				transform: rotateY(90deg);
+				transition: 1s;
+				opacity: 0;
+			}
+			@keyframes rotar{
+				from{
+					opacity: 0;
+					transform: rotateY(0deg);
+				}
+				12.5%{
+					transform: rotateY(23.5deg);
+				}
+				25%{
+					transform: rotateY(45deg);
+				}
+				37.5%{
+					opacity: 0;
+					transform: rotateY(68.5deg);
+				}
+				49.9%{
+					opacity: 0;
+				}
+				50%{
+					opacity: 0;
+					transform: rotateY(90deg);
+				}
+				62.5%{
+					opacity: 1;
+					transform: rotateY(113.5deg);
+				}
+				75%{
+					transform: rotateY(135deg);
+				}
+				87.5%{
+					transform: rotateY(158.5deg);
+				}
+				to{
+					opacity: 1;
+					transform: rotateY(180deg);
+				}
+			}
+			.form-container{
+				width: 100%;
+				height: auto;
+				position: absolute;
+				left: 5%;
+				bottom: 12%;
+				/*transform-origin: 50%;*/
+				/*animation-name: desaparece;*/
+				/*animation-duration: 2s;*/
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				
+			}
+			@keyframes desaparece{
+				from{
+					transform: rotateZ(0deg) scale(1);
+				}
+				12.5%{
+					transform: rotateZ(45deg) scale(.9);
+				}
+				25%{
+					transform: rotateZ(90deg) scale(.8);
+				}
+				37.5%{
+					transform: rotateZ(135deg) scale(.7);
+				}
+				50%{
+					transform: rotateZ(180deg) scale(.6);
+				}
+				62.5%{
+					transform: rotateZ(225deg) scale(.5);
+				}
+				75%{
+					transform: rotateZ(270deg) scale(.4);
+				}
+				87.5%{
+					transform: rotateZ(315deg) scale(.3);
+				}
+				to{
+					transform: rotateZ(360deg) scale(0);
+				}
+			}
+			.form-messenger{
+				text-align: center;
+				position: absolute;
+				margin: auto;
+				/*z-index: 20;*/
+				font-size: 3.5em;
+				color: white;
+				direction: ltr;
+				/*animation-name: aparece;*/
+				/*animation-duration: 2s;*/
+				animation-delay: 2s;
+				animation-fill-mode: forwards;
+				animation-timing-function: linear;
+				opacity: 0;
+			}
+			@keyframes aparece{
+				from{
+					opacity: 0;
+				}
+				to{
+					opacity: 1;
+				}
+			}
+			.social{
+				width: 50px;
+				/*height: 200px;*/
+				display: flex;
+				flex-direction: column;
+				position: fixed;
+				top: 0;
+				right: 0;
+				z-index: 14;
+			}
+			.social-link{
+				width: 50px;
+				height: 50px;
+				margin: 5px 0;
+			}
+			.social-link img{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" >
+			<div class="social">
+				<a class="social-link" href="http://www.facebook.com/" target=”_blank” ><img src="image/2000px-Facebook_Icon_(Single_Path_-_Transparent_-f-).svg.png" /></a>
+				<a class="social-link" href="http://www.twitter.com/" target=”_blank” ><img src="image/twitter-icon-logo-pajarito.png" /></a>
+				<a class="social-link" href="http://www.instagram.com/" target=”_blank” ><img src="image/instagram-colourful-icon-300x296.png" /></a>
+				<a class="social-link" href="http://www.linkedin.com/" target=”_blank” ><img src="image/Linkedin_circle.svg_-300x300.png" /></a>
+				<a class="social-link" href="http://www.github.com/" target=”_blank” ><img src="image/1024px-Octicons-mark-github.svg.png" /></a>
+			</div>
+			<header class="header">
+				<div class="logo">
+					<img class="logo-image" src="image/defile de mode.png" alt="logo">
+					<!-- <h1>AlanMassi</h1> -->
+				</div>
+				<div class="menu" id="menu">
+					<a class="link click" href="#home" id="menu-home">Home</a>
+					<a class="link" href="#about" id="menu-about">About</a>
+					<a class="link" href="#experience" id="menu-experience">Experience</a>
+					<a class="link" href="#contact" id="menu-contact">Contact</a>
+				</div>
+			</header>
+			<div class="page-container" id="particles-js"><!--id="page-container"-->
+				<section class="seccion home active" id="home">
+					<!-- <img class="logo-image" src="image/defile de mode.png" alt="logo"> -->
+					<h1>Alan <br>Massi</h1>
+				</section>
+				<section class="seccion about" id="about">
+					<div id="parallax-container">
+						<img class="para-image"src="image/57890ceda654beddcbe6c70c6db87638.jpg" alt="image-font">
+						<img class="para-image" src="image/anime-city-lights-night-rain-umbrella-sky-5k-ou.jpg" alt="image-font">
+						<div  class="verde" >
+						</div>
+						<div class="blaquito" >
+							<span class="letter">
+								<h1>Developer Web Design C++ Less</h1>
+								<h5>APLICATION PROGRAMMING INTERFACE SQL Phyton Jquery ruby Control de versiones</h5>
+								<h2>CASCADING STYLE SHEETS Backlog DOM</h2>
+								<h2>Backend Frontend React JS Android linux</h2>
+								<h3>Angular JS Java Bug JAVASCRIPT OBJECT NOTATION Git Status</h3>
+								<h1>DOMAIN NAME SYSTEM Sass</h1>
+								<h5>Caché CMS Commits Dev Ops Data Science Github Iteración / Desarrollo Iterativo Open Source</h5>
+								<h1>Responsive Software as a Service</h1>
+								<h3>Pull Requests Scrum Sprints Unit Testing VPN animation Web Movil</h3>
+								<h1>Bootstrap CHROME SAFARI CMD </h1>
+								<h2>HYPERTEXT MARKUP LANGUAGE HOSTING FTP</h2>
+							</span>
+							<img class="blaquito-image" src="image/oie_HECBWMLfRJAk.png" alt="image-font">
+						</div>
+						<div class="about-title">
+							<h1>About me?</h1>
+						</div>
+						<div class="about-name">
+							<h1>Hi! i'm Alan</h1>
+						</div>
+						<div class="about-be">
+							<h1>Soy Desarrollador web Design.!
+							Argentino, Me encanta pasar el rato</h1>
+						</div>
+						<div class="part-tree">
+							<h1>Desde chico me intereso el mundo
+								informatico y una de mis metas
+								fue trabajar de lo que me apasiona</h1>
+						</div>
+						<!--contenido-->
+					</div>
+					<!-- <div class="content" id="content">
+						
+					</div> -->
+				</section>
+				<section class="seccion experience" id="experience">
+					<div class="experience-description">
+						<h1>An little my work</h1>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipiscing elit 
+							vivamus magna, mauris tortor taciti et egestas sodales 
+							vulputate eu habitasse rutrum, enim volutpat tempor ac 
+							aenean semper ridiculus himenaeos. Nisl erat interdum tempor 
+							tempus magnis mattis dictumst vel, inceptos facilisi ridiculus 
+							porttitor malesuada aptent duis, ullamcorper purus velit sociosqu 
+							ac tincidunt fringilla. Diam scelerisque et suspendisse ac congue 
+							sem imperdiet feugiat magnis ullamcorper inceptos at, nisl mollis 
+							bibendum viverra netus sagittis neque id eleifend quis ante.
+						</p>
+					</div>
+					<div class="experience-slider" id="proyect">	
+						<article class="proyect-container" >
+							<span class="proyect-image" id="proyect-image1"></span>
+							<h3>Nombre del producto</h3><br>
+							<div class="coment" id="proyect-coment">
+								<p> Lorem ipsum dolor sit amet 
+								consectetur adipiscing elit vivamus 
+								magna, mauris tortor taciti et egestas 
+								sodales vulputate eu habitasse rutrum, 
+								enim volutpat tempor ac aenean semper 
+								ridiculus himenaeos. </p>
+								<a href="#">enlace</a>
+							</div>
+						</article>
+						<article class="proyect-container" >
+							<span class="proyect-image" id="proyect-image2"></span>
+							<h3>Nombre del producto</h3><br>
+							<div class="coment" id="proyect-coment">
+								<p> Lorem ipsum dolor sit amet 
+								consectetur adipiscing elit vivamus 
+								magna, mauris tortor taciti et egestas 
+								sodales vulputate eu habitasse rutrum, 
+								enim volutpat tempor ac aenean semper 
+								ridiculus himenaeos. </p>
+								<a href="#">enlace</a>
+							</div>
+						</article>
+						<article class="proyect-container" >
+							<span class="proyect-image" id="proyect-image3"></span>
+							<h3>Nombre del producto</h3><br>
+							<div class="coment" id="proyect-coment">
+								<p> Lorem ipsum dolor sit amet 
+								consectetur adipiscing elit vivamus 
+								magna, mauris tortor taciti et egestas 
+								sodales vulputate eu habitasse rutrum, 
+								enim volutpat tempor ac aenean semper 
+								ridiculus himenaeos. </p>
+								<a href="#">enlace</a>
+							</div>
+						</article>
+						<article class="proyect-container" >
+							<span class="proyect-image" id="proyect-image4"></span>
+							<h3>Nombre del producto</h3><br>
+							<div class="coment" id="proyect-coment">
+								<p> Lorem ipsum dolor sit amet 
+								consectetur adipiscing elit vivamus 
+								magna, mauris tortor taciti et egestas 
+								sodales vulputate eu habitasse rutrum, 
+								enim volutpat tempor ac aenean semper 
+								ridiculus himenaeos. </p>
+								<a href="#">enlace</a>
+							</div>
+						</article>
+						<article class="proyect-container" >
+							<span class="proyect-image" id="proyect-image5"></span>
+							<h3>Nombre del producto</h3><br>
+							<div class="coment" id="proyect-coment">
+								<p> Lorem ipsum dolor sit amet 
+								consectetur adipiscing elit vivamus 
+								magna, mauris tortor taciti et egestas 
+								sodales vulputate eu habitasse rutrum, 
+								enim volutpat tempor ac aenean semper 
+								ridiculus himenaeos. </p>
+								<a href="#">enlace</a>
+							</div>
+						</article>
+					</div>
+				</section>		
+				<section class="seccion contact" id="contact">
+					<h1 class="contact-title" id="contact-title">¿Creamos algo juntos?</h1>
+					<div class="form-container" id="form-container">
+						<form  action="enviar.php" method="POST" class="form" id="form">
+							<div class="consulta" id="consulta">
+								<div>
+									<label for="">Describe tu consulta:</label>
+									<textarea name="mensaje" class="consult" rows="10" placeholder="Escribeme tu Consulta" required></textarea>
+									
+								</div>
+								<!-- <input type="button" name="boton" class="btn" id="submit" type="submit" value="Enviar"> -->
+								<button name="boton" class="btn" id="submit" type="submit">Enviar</button>
+							</div>
+							<div class="form-date" id="form-date">
+								<div>
+									<label for="">Nombre:</label>
+									<input class="form-box" name="nombre" type="text" placeholder="Ingresa tu nombre" required>
+									
+								</div><br>
+								<div>
+									<label for="">Ingresa tu Email:</label>
+									<input class="form-box" name="email" type="text" placeholder="Ingresa tu correo" required>
+									
+								</div><br>
+							</div>
+							<h1 class="form-messenger" id="form-messenger">Gracias por contactarme, me comunicare en al brevedad.!</h1>
+							
+						</form>
+						<div class="form-frontal" id="form-frontal"></div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+		<script>//validacion jquery
+			(function(){
+				var formulario = document.getElementById('form');
+				elemento = formulario.elements,
+				boton = document.getElementById('submit');
+
+				var valida
+			});
+		</script>
+		<script>// seccion contact resize del form
+			const $form = document.getElementById('form'); //traigo el formulario
+			const $formFrontal = document.getElementById('form-frontal');//traigo la aprte frontal del formulario
+			const $formContainer = document.getElementById('form-container');//traigo el container principal del form
+			$formFrontal.style.width = $form.offsetWidth+'px';//le cambio el width a frotnal
+			$formFrontal.style.height = $form.offsetHeight+'px';//y le cambio el height
+			$formFrontal.style.left = $form.offsetLeft+'px';//y le cambio el height
+			$formFrontal.style.bottom = $form.offsetBottom+'px'
+			
+			//console.log($form.offsetLeft)
+			window.onresize=Resize;//obtengo el resize del navegador
+			
+			function Resize()//si se hace resize
+				{
+					if($form.offsetWidth != $formFrontal.offsetWidth){//y los widths no son iguales
+						
+						$formFrontal.style.width = $form.offsetWidth+'px';//le cambio el width a frotnal
+						$formFrontal.style.height = $form.offsetHeight+'px';//y le cambio el height
+						$formFrontal.style.left = $form.offsetLeft+'px';//y le cambio el height
+						$formFrontal.style.bottom = $form.offsetBottom+'px';//y le cambio el height
+					}
+				}
+			const $submit = document.getElementById('submit');
+			
+			$submit.addEventListener('click', () => {//tomo el evento del click de enviar el form
+				$formFrontal.style.animationName='rotar';//creo la propiedad de la animacion
+				$formFrontal.style.animationDuration = '2s';//tiempo en la que se va a ejecutar
+				$form.style.animationName='rota';
+				$form.style.animationDuration = '2s';
+				
+			});
+			const $contactTitle = document.getElementById('contact-title');
+			
+			$formFrontal.addEventListener('animationend', () =>{//cuando termina la animacion de la postal
+				
+				$contactTitle.style.animationName = 'fui';//ejecuto la animacion del form
+				$contactTitle.style.animationDuration = '1s';//ejecuto la animacion del form
+				$formContainer.style.animationName = 'desaparece';//ejecuto la animacion del form
+				$formContainer.style.animationDuration = '2s';
+				
+			});
+			
+			const $formMessenger = document.getElementById('form-messenger');//traigo el mensaje post form
+			
+			$formContainer.addEventListener('animationend', () =>{//cuandos se va la postal
+				
+				$formMessenger.style.animationName = 'aparece';//aparece eel mensaje
+				$formMessenger.style.animationDuration = '2s';
+				
+			});
+		</script>
+		<script>//menu y secciones desplazamiento y style
+			//menu
+			let menu = document.getElementById('menu');//traigo al elemento menu
+			let menuChildren = menu.getElementsByTagName('a');//traigo a los hijos con el tag, los enlaces
+			//secciones
+			let seccion = document.getElementById('particles-js');//traigo al elemento principal
+			let seccionChildren = seccion.getElementsByTagName('section');//traigo a los hijos con el tag section, las secciones
+			menu.addEventListener('click', (event)=>{	//evento por click en el menu			
+				for(var i=0; i<menuChildren.length; i++){//creo el ciclo para reconocer que eeenlace fue clickeado
+				
+					if(event.target.id == menuChildren[i].id){//si el id corresponde a un enlace del menu
+						
+						for(var t=0; t<seccionChildren.length; t++){//se abre el ciclo para sacarle la class 
+						
+							seccionChildren[t].classList.remove('active');//remueve la class a la seccion
+							menuChildren[t].classList.remove('click');//remueve la class al enlace del menu
+						}
+						
+						menuChildren[i].classList.add('click');//agrega la class cuando esta seleccionado el enlace
+						seccionChildren[i].classList.add('active');//agrega la class para que se vea la seccion
+					}		
+				}
+			});
+		</script>
+		<script>//seccion about
+			const $about = document.getElementById('about');//traigo about
+			$about.addEventListener('scroll',(event) =>{//que detecte el scroll de about
+				//console.log(event.target.scrollTop); detecta el scroll de about
+				let parent = document.getElementById('parallax-container');//traigo al contenedor de parallax
+				let children = parent.getElementsByTagName('div');//traigo a los hijos  
+				for(let i=0; i<children.length; i++){//recorro el array de los hijos
+					children[i].style.transform = 'translateY(-'+($about.scrollTop * i / children.length)+ 'px)';	
+				}
+				/*if($about.scrollTop > 95){//si el scroll es mayor a 95 le cambio la opacidad al div.
+					children[4].style.opacity = '1';
+				}
+				else{
+					children[4].style.opacity = '0';
+				}*/
+			}, false);
+		</script>
+		<script>//seccion experience slider
+			const $proyect = document.getElementById('proyect');//traigo el slider
+			const $proyectImg = $proyect.getElementsByTagName('span');//traigo los elementos span
+			const $proyectDes = $proyect.getElementsByTagName('div');//traigo los elementos div
+	
+			$proyect.addEventListener('click', (event) =>{
+			for(let i=0; i<$proyectImg.length; i++){//recorro el array de las imagenes
+					
+					if(event.target.id == $proyectImg[i].id){//si el id del event es igual al elemento del array ejecuta
+					
+						$proyectImg[i].classList.toggle('ampli');//si tiene la class la elimina sino, la agrega
+						$proyectDes[i].classList.toggle('plash');//si tiene la class la elimina sino, la agrega	
+					}	
+				}	
+			});
+		</script>
+		
+		<script src="js/jquery-lastest.js"></script>
+        <script src="js/particles.js">//tiene toda la libreria</script>
+        <script src="js/particulas.js">//configuracion de las particulas</script>
+	</body>
+</html>
